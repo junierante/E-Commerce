@@ -1,0 +1,17 @@
+extends layout.pug
+block content
+    h1 User Profile 
+    form(action='/userProfile/edit' method='post')  
+        .form-group
+            h4 First Name:      
+            input.form-control(type='text' name='firstName' value=firstName)
+            h4 Last Name:         
+            input.form-control(type='text' name='lastName' value=lastName)
+            h4 Contact Number:        
+            input.form-control(type='text' name='number' value=number)
+            h4 Password:         
+            input.form-control(type='text' name='password' value=password)
+            h4 Address:        
+            input.form-control(text='text' name='address' value=address)
+        .form-group
+            button.btn.btn-primary(type="submit") Save 

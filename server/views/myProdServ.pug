@@ -1,0 +1,39 @@
+extends layout.pug
+block content
+
+    div(class="container")
+    
+    if prodL == 0
+        h1 No Products posted yet
+    else
+        h1 My Products
+        table(id='example' class='table table-hover' style='width:100%')
+            thead
+                tr
+                    th Name
+                    th Description
+                    th Product Type
+                    th Product Price
+                    th Quantity Available
+                    th Shipping Fee
+                    th(colspan="2") Action
+                    
+                    
+            tbody  
+                each val, index in prod     
+                    tr
+                        td= prod[index].productName 
+                        td= prod[index].description 
+                        td= prod[index].type
+                        td= prod[index].price 
+                        td= prod[index].quantity
+                        td= prod[index].shippingfee
+                        
+                        td
+                            form(action='/delete/prod/'+prod[index].productId+'?_method=DELETE' method='post')
+                                button.btn(role='button' type='submit') Delete
+                        td
+                            form(action='/updateProd' method='post')
+                                input.hidden(type="hidden" value=prod[index].productId name='productId')
+                                button.btn(role='button' type='submit') Edit
+        

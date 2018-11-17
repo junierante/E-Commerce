@@ -1,0 +1,38 @@
+extends layout.pug
+block content
+
+
+    div(class="container")
+    if sampL == 0
+        h1 Products 
+        h2 No Entries..
+    else
+        h1 Products  
+        table(id='example' class='table table-hover' )
+            thead
+                tr
+                    th Product Name
+                    th Description
+                    th Product Type
+                    th Product Price
+                    th Product Quantity
+                    th Shipping Fee
+                    th Action
+            tbody
+                each val, index in sample
+                    tr 
+                        td=sample[index].productName
+                        td=sample[index].description
+                        td=sample[index].type
+                        td=sample[index].price
+                        td=sample[index].quantity
+                        td=sample[index].shippingfee
+                        td
+                            //form(action='/buyProduct/prod/'+prod[index].productId+'?_method=delete' method="POST")
+                                button Order
+                            form(action='/orderProduct' method='post')    
+                                input.hidden(type="hidden" value=sample[index].productId name='productId')
+                                input.hidden(type="hidden" value=sample[index].userId name='userId')
+                                    
+                                button.btn(type="submit") Order
+    

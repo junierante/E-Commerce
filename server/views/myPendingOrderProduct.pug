@@ -1,0 +1,44 @@
+extends layout.pug
+block content
+    if sample == 0
+        h1 No orders yet.
+    else
+        h1 Product Order List
+        div(class="container")
+        table(id='example' class='table table-hover' style='width:100%')
+            thead
+                tr
+            
+                    th Name
+                    th Description
+                    th Quantity
+                    th Status
+                    th Buyer
+                    th Price
+                    th Shipping Fee
+                    
+                
+            tbody
+                each val, index in sample
+                    tr 
+                        
+                        td=sample[index].name
+                        td=sample[index].description
+                        td=sample[index].quantity
+                        td=sample[index].status
+                        td=sample[index].buyerName
+                        td=sample[index].price
+                        td=sample[index].shippingfee
+                        td  
+                            if sample[index].status == 'Now Delivering'
+                                
+                                    input.hidden(type="hidden" value=sample[index].status = "Now Delivering" name='status')
+                            else if sample[index].status == 'Received'     
+                                    
+                            else
+                                form(action='/statusPendingProduct' method='post')
+                                    input.hidden(type="hidden" value=sample[index].orderId name='orderId')
+                                    input.hidden(type="hidden" value=sample[index].sellerId name='sellerId')
+                                    input.hidden(type="hidden" value=sample[index].productId name='productId')
+                                    input.hidden(type="hidden" value=sample[index].quantity name='quantity')
+                                    button.btn.btn-primary(role='button' type='submit') Deliver

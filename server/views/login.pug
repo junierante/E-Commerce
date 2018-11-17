@@ -1,0 +1,66 @@
+extends loginLayout.pug
+block content
+  .top-content
+    .inner-bg
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2.text
+            h1
+              strong Welcome to
+              |  Lexus E-Commerce
+            .description
+              p
+                |Finding ways to buy and Sell 
+                strong "Services and Products"
+                
+        .row
+          .col-sm-5
+            .form-top
+              .form-top-left
+                h3 Login to our site
+                p Enter username and password to log on:
+              .form-top-right
+                i.fa.fa-lock
+            .form-bottom
+              form.login-form(name='logForm'  action='/', method='post')
+                .form-group
+                  label.sr-only(for='form-usernameL') Username
+                  input.form-usernameL.form-control(id='usernameL' type='text', name='usernameL', placeholder='Username...')
+                .form-group
+                  label.sr-only(for='form-passwordL') Password
+                  input.form-passwordL.form-control(id='passwordL' type='password', name='passwordL', placeholder='Password...')
+                button.btn#login(type='submit' disabled='disabled' ) Sign in!
+          .col-sm-1.middle-border
+          .col-sm-1
+          .col-sm-5
+            .form-top
+              .form-top-left
+                h3 Sign up now
+                p Fill in the form below to get instant access:
+              .form-top-right
+                i.fa.fa-pencil
+            .form-bottom
+              form.registration-form(role='form', action='/register', method='post')
+                .form-group
+                  label.sr-only(for='form-first-name') First name
+                  input#form-first-name.form-first-name.form-control(type='text', name='firstName', placeholder='First name...' required )
+                .form-group
+                  label.sr-only(for='form-last-name') Last name
+                  input#form-last-name.form-last-name.form-control(type='text', name='lastName', placeholder='Last name...' required )
+                .form-group
+                  label.sr-only(for='form-email') Email
+                  input#form-email.form-email.form-control(type='text', name='email', placeholder='Email...' required)
+                .form-group
+                  label.sr-only(for='form-number') Mobile Number
+                  input#form-number.form-number.form-control(type='text', name='number', placeholder='Mobile Number...' onkeypress="return isNumber(event)" required)
+                .form-group
+                  label.sr-only(for='form-username') Username
+                  input#form-username.form-username.form-control(type='text', name='username', placeholder='Username...' required)
+                .form-group
+                  label.sr-only(for='form-email') Password
+                  input#form-password.form-password.form-control(type='password', name='password', placeholder='Password...' required)
+                .form-group
+                  label.sr-only(for='form-address') Address
+                  textarea#form-address.form-address.form-control(name='address', placeholder='Address...' required)
+                
+                button.btn#register(type='submit' disabled='disabled' ) Sign me up!

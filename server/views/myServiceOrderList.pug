@@ -1,0 +1,46 @@
+extends layout.pug
+block content
+    if sampleL == 0
+        h1 No orders yet.
+    else
+        h1 Service Order List
+        div(class="container")
+        table(id='example' class='table table-hover' style='width:100%')
+            thead
+                tr
+                
+                    th Name
+                    th Description
+                    th Status
+                    th Seller
+                    th Price
+            
+            tbody
+                each val, index in sample
+                    tr  
+        
+                        td=sample[index].name
+                        td=sample[index].description
+                        td=sample[index].status
+                        td=sample[index].seller
+                        td=sample[index].price
+                        td  
+                            if sample[index].status == 'Cancelled'
+                                label You Cancelled the Order!
+                            else if sample[index].status == 'Confirmed'
+                                label=sers[index].mobilenumber
+                                form(action='/statusReceived' method='post')
+                                    input.hidden(type="hidden" value=sample[index].orderId name='orderId')
+                                    input.hidden(type="hidden" value=sample[index].sellerId name='sellerId')
+                                    input.hidden(type="hidden" value=sample[index].productId name='productId')
+                                    input.hidden(type="hidden" value=sample[index].quantity name='quantity')
+                                    
+                            
+                                
+                            else
+                                form(action='/cancelOrder' method='post')
+                                    input.hidden(type="hidden" value=sample[index].orderId name='orderId')
+                                    input.hidden(type="hidden" value=sample[index].sellerId name='sellerId')
+                                    input.hidden(type="hidden" value=sample[index].productId name='productId')
+                                    input.hidden(type="hidden" value=sample[index].quantity name='quantity')
+                                    button.btn.btn-primary(role='button' type='submit') Cancel Order

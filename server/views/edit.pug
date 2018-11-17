@@ -1,0 +1,31 @@
+extends layout.pug
+block content
+    div.containter
+    h1 Edit Product
+    form(action='/updateProd/'+productItem[0].productId+'?_method=PUT' method="POST")
+            .form-group
+                label Edit Product Name
+                input.form-control(type="text" name="prodName" value=productItem[0].productName)
+            .form-group
+                label Edit Description
+                input.form-control(type="text" name="prodDescription" value=productItem[0].description)
+                div
+                    label Edit Type of Product 
+                    select.select.form-control(name="prodType" id="load_value" type="number" value=productItem[0].type)
+                        option(value="Books" ) Books
+                        option(value="Clothes" ) Clothes
+                        option(value="Gadgets") Gadgets
+            .form-group
+                label Edit Quantity
+                input.form-control(type="text" name="prodQuantity" value=productItem[0].quantity onkeypress="return isNumber(event)")
+            .form-group
+                label Shipping Fee
+                input.form-control#deposit(type="text" name="shipFee" value=productItem[0].shippingfee onkeypress="return isNumber(event)")           
+            .form-group
+                label Edit Price
+                input.form-control#deposit(type="text" name="prodPrice" value=productItem[0].price onkeypress="return isNumber(event)")       
+            
+                            
+            .form-group
+            button.btn.btn-primary(type="submit") Confirm
+            

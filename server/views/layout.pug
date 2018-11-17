@@ -1,0 +1,150 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title ECOM
+    
+    // Bootstrap core CSS
+    
+    link(href='assets/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='assets/bootstrap/css/bootstrap.css', rel='stylesheet')
+    link(href='dataTables.bootstrap.min.css', rel='stylesheet')
+    link(href='design.css', rel='stylesheet')
+    //script(src='assets/bootstrap/js/bootstrap.min.js')
+    
+    
+    
+
+    //link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', rel='stylesheet')
+    //script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')
+    //script(src='//code.jquery.com/jquery-1.11.1.min.js')
+
+    
+    
+    
+      
+    
+
+  // ---- Include the above in your HEAD tag --------
+  body
+    .wrap
+      nav.nav-bar.navbar-inverse(role='navigation')
+        #top-menu.container-fluid.active
+          a.navbar-brand(href='/home') Lexus E- Commerce
+          ul.nav.navbar-nav
+            li.dropdown.movable
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                span.glyphicon.glyphicon-user
+                
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='/userProfile')
+                    span
+                    | My Profile
+                li.divider
+                li
+                  a(href='/logout')
+                    span.fa.fa-power-off
+                    | Logout
+
+      aside#side-menu.aside(role='navigation')
+        ul.nav.nav-list.accordion
+          li.nav-header
+            .link
+              i.glyphicon.glyphicon-plus 
+              | Add Products or Services 
+              span.glyphicon.glyphicon-menu-down
+            ul.submenu
+              li
+                a(href='/product') Add Product
+              li
+                a(href='/service') Add Service
+              
+          li.nav-header
+            .link
+              i.glyphicon.glyphicon-gift
+              | Buy Products or Services 
+              span.glyphicon.glyphicon-menu-down
+            ul.submenu
+              li
+                a(href='/buyProdServ') Buy Products
+              li
+                a(href='/buyService') Buy Services
+                                  
+          li.nav-header
+            .link
+              i.glyphicon.glyphicon-shopping-cart
+              | My Order List 
+              span.glyphicon.glyphicon-menu-down
+            ul.submenu
+              li
+                a(href='/myOrderList') My Product Order List
+              li
+                a(href='/myServiceOrderList') My Service Order List
+                    
+          li.nav-header
+            .link
+              i.glyphicon.glyphicon-tasks
+              | My Products And Services 
+              span.glyphicon.glyphicon-menu-down
+            ul.submenu
+              li
+                a(href='/myProdServ') My Products
+              li
+                a(href='myServ') My Services
+                    
+          li.nav-header
+            .link
+              i.glyphicon.glyphicon-hourglass
+              | My Pending Orders 
+              span.glyphicon.glyphicon-menu-down
+            ul.submenu
+              li
+                a(href='/myPendingOrderService') Pending Services Orders
+              li
+                a(href='/myPendingOrderProduct') Pending Products Orders
+          
+          
+      // Body content
+      .content
+        div
+          a.side-menu-link.burger(href='#menu')
+            span#bgrOne.burger_inside
+            span#bgrTwo.burger_inside
+            span#bgrThree.burger_inside
+        section.content-inner
+          != messages('message', locals)
+          block content
+          
+    
+    
+      
+        
+    //
+
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    //script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    //script(src='//code.jquery.com/jquery-1.11.1.min.js')
+    script(src='jquery.js' )
+    script(src='assets/bootstrap/js/bootstrap.min.js')
+    script(src='jquery.dataTables.min.js' )
+    script(src='dataTables.bootstrap.min.js' )
+    script(src='popper.min.js')
+    script(src='design.js')
+    script.
+      $('#example').dataTable({
+        "pageLength": 8,
+        "lengthChange": false,
+        "ordering": false
+      });
+    script.
+      window.jQuery || document.write('<script src="/vendor/jquery-slim.min.js"><\\/script>')
+    
+    script(src='assets/js/scripts.js')
+    
+

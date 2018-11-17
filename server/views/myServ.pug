@@ -1,0 +1,32 @@
+extends layout.pug
+block content
+    
+    div(class="container")
+
+    if servL == 0
+        h1 No Services Posted yet
+    else
+        h1 My Services
+        table(id='example' class='table table-hover' style='width:100%')
+            thead
+                tr
+                    th Name
+                    th Description
+                    th Service Type
+                    th Service Price
+                    th(colspan='2') Action
+                
+            tbody
+                each val, index in serv
+                    tr
+                        td= serv[index].serviceName
+                        td= serv[index].description 
+                        td= serv[index].type 
+                        td= serv[index].price 
+                        td
+                            form(action='/delete/serv/'+serv[index].serviceId+'?_method=DELETE' method='post')
+                                button.btn(role='button' type='submit') Delete
+                        td
+                            form(action='/updateServ' method='post')
+                                input.hidden(type="hidden" value=serv[index].serviceId name='serviceId')
+                                button.btn(role='button' type='submit') Edit

@@ -1,0 +1,37 @@
+extends layout.pug
+block content
+
+    h1 Order Product:
+    div(class="container")
+        
+            h5 Name:
+            label=orderItem[0].productName
+            h5 Descciprtion:
+            label=orderItem[0].description
+            h5 Seller:
+            label=userSeller[0].firstName + " " + userSeller[0].lastName
+            h5 Quantity:
+            label=orderItem[0].quantity
+            h5 Price:
+            label=orderItem[0].price
+            h5 Shipping Fee:
+            label=orderItem[0].shippingfee
+            form(action='/orderTransaction/?_method=PUT' method="POST")
+                .form-group
+                    label Input Quantity
+                    input.form-control(type="text" name="inputQuantity" onkeypress="return isNumber(event)")
+                                                
+                    input.hidden(type="hidden" value=orderItem[0].productName name='productName')
+                    input.hidden(type="hidden" value=orderItem[0].productId name='productId')        
+                    input.hidden(type="hidden" value=orderItem[0].description name='description')
+                    input.hidden(type="hidden" value=orderItem[0].userId name='userId')
+                    input.hidden(type="hidden" value=orderItem[0].quantity name='quantity')
+                    input.hidden(type="hidden" value=orderItem[0].price name='price')    
+                    input.hidden(type="hidden" value=orderItem[0].price name='shippingfee')    
+                    input.hidden(type="hidden" value=userSeller[0].firstName + " " + userSeller[0].lastName name='sellerName')
+                    input.hidden(type="hidden" value=userSeller[0].id name='sellerId')
+                      
+                    
+                .form-group
+                    button.btn.btn-primary(type="submit") Buy Now
+                    

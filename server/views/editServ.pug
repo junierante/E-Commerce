@@ -1,0 +1,24 @@
+extends layout.pug
+block content
+
+    h1 Add Service
+    form(action='/updateServ/'+serviceItem[0].serviceId+'?_method=PUT' method="POST")
+        .form-group
+            label Name of Service
+            input.form-control(type="text" name="serviceName" value=serviceItem[0].service)
+        .form-group
+            label Description
+            input.form-control(type="text" name="description" value=serviceItem[0].description)
+        .form-group
+            div
+                label Type of Service 
+                select.select.form-control(name="servType" id="load_value" type="number"  value=serviceItem[0].type)
+                    option(value="Tutorial" ) Tutorial
+                    option(value="Deisgning" ) Designing
+        .form-group
+            label Price
+            input.form-control#deposit(type="text" name="price" onkeypress="return isNumber(event)" value=serviceItem[0].price)       
+        
+                        
+        .form-group
+        button.btn.btn-primary(type="submit") Confirm

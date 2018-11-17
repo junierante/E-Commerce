@@ -1,0 +1,32 @@
+extends layout.pug
+block content
+
+    
+    div(class="container")
+
+    if sampS == 0
+        h1 Services
+        h2 No Entries
+    else
+        h1 Services
+        table(id='example' class='table table-hover' style='width:100%')
+            thead
+                tr
+                    th Name
+                    th Description
+                    th Type
+                    th Prices       
+            tbody
+                each val, index in sampleS
+                    tr 
+                        td=sampleS[index].serviceName
+                        td=sampleS[index].description
+                        td=sampleS[index].type
+                        td=sampleS[index].price
+                        td
+                            
+                            form(action='/orderService' method='post')    
+                                input.hidden(type="hidden" value=sampleS[index].serviceId name='serviceId')
+                                input.hidden(type="hidden" value=sampleS[index].userId name='userId')
+                                    
+                                button.btn(type="submit") Order

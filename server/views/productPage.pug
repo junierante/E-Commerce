@@ -1,0 +1,26 @@
+extends layout.pug
+block content
+
+    h1 Add Product
+    form(action='/product/'+getID method="POST")
+        .form-group
+            input.form-control(type="text" name="nameofService" required placeholder='Name of Product..')
+        .form-group
+            input.form-control(type="text" name="description" required placeholder='Description..')
+        .form-group
+ 
+                select.select.form-control(name="tos" id="load_value" type="number" required )
+                    option(value="" selected="true" disabled ) Select Type of Product..
+                    option(value="Books" ) Books
+                    option(value="Clothes" ) Clothes
+                    option(value="Gadgets") Gadgets
+        .form-group
+            input.form-control(type="text" name="quantity" onkeypress="return isNumber(event)" placeholder='Quantity..' required)
+        .form-group
+            input.form-control(type="text" name="shippingfee" onkeypress="return isNumber(event)" placeholder='Shipping Fee..' required)
+        .form-group
+            input.form-control#deposit(type="text" name="price" onkeypress="return isNumber(event)" placeholder='Price..' required)       
+        
+                        
+        .form-group
+        button.btn.btn-primary(type="submit") Confirm
