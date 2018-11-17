@@ -1,0 +1,74 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"firstName": "Brandolf",
+			"lastName": "Hitlur",
+			"email": "qwe",
+			"number": "09123123",
+			"username": "qwe",
+			"password": "qwe",
+			"address": "Sampalayan"
+		},
+		{
+			"id": 2,
+			"firstName": "junie",
+			"lastName": "rante",
+			"email": "junierante@gmail.com",
+			"number": "09123123",
+			"username": "junie",
+			"password": "rante",
+			"address": "asdasd\n"
+		},
+		{
+			"id": 3,
+			"firstName": "asd",
+			"lastName": "asd",
+			"email": "asd",
+			"number": "0909",
+			"username": "asd",
+			"password": "asd",
+			"address": "asd"
+		},
+		{
+			"id": 4,
+			"firstName": "kevin",
+			"lastName": "perez",
+			"email": "kevinperez@gmail.com",
+			"number": "0912312",
+			"username": "kevin",
+			"password": "perez",
+			"address": "hello"
+		},
+		{
+			"id": 5,
+			"firstName": "kathy",
+			"lastName": "rivera",
+			"email": "kathrivera@gmail.com",
+			"number": "0912313",
+			"username": "kathy",
+			"password": "rivera",
+			"address": "asdasdsad"
+		},
+		{
+			"id": 6,
+			"firstName": "ira",
+			"lastName": "ramos",
+			"email": "iraramos@gmail.com",
+			"number": "09123131",
+			"username": "ira",
+			"password": "ramos",
+			"address": "asdasdasd"
+		},
+		{
+			"id": 7,
+			"firstName": "joshua",
+			"lastName": "sabater",
+			"email": "jsabater@gmail.com",
+			"number": "0912313",
+			"username": "joshua",
+			"password": "sabater",
+			"address": "asdadasd"
+		}
+	]
+}

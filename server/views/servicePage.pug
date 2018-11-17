@@ -1,0 +1,21 @@
+extends layout.pug
+block content
+
+    h1 Add Service
+    form(action='/service/'+getID method="POST")
+        .form-group
+            input.form-control(type="text" name="nameofService" required placeholder='Name of Service..')
+        .form-group
+            input.form-control(type="text" name="description" required placeholder='Description')
+        .form-group
+        
+                select.select.form-control(name="tos" id="load_value" type="number" required)
+                    option(value="" selected disabled ) Select Type of Service..
+                    option(value="Tutorial" ) Tutorial
+                    option(value="Deisgning" ) Designing
+        .form-group
+            input.form-control#deposit(type="text" name="price" onkeypress="return isNumber(event)" required placeholder='Price..')       
+        .form-group
+            input.form-control#deposit(type="text" name="mobilenumber" onkeypress="return isNumber(event)" required placeholder='Enter your Mobile Number..')       
+        .form-group
+        button.btn.btn-primary(type="submit") Confirm

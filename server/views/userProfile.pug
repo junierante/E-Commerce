@@ -1,0 +1,29 @@
+extends layout.pug
+block content
+    h1 User Profile 
+    h4 First Name:      
+        label=details[0].firstName
+    h4 Last Name:         
+        label=details[0].lastName
+    h4 E-mail 
+        label=details[0].email
+    h4 Contact Number:        
+        label=details[0].number
+    h4 Username:        
+        label=details[0].username
+    h4 Password:         
+        label=details[0].password
+    h4 Address:         
+        label=details[0].address
+
+        form(action='/userProfile' method='post')    
+            input.hidden(type="hidden" value=details[0].firstName name='firstName')
+            input.hidden(type="hidden" value=details[0].lastName name='lastName')
+            input.hidden(type="hidden" value=details[0].email name='email')
+            input.hidden(type="hidden" value=details[0].number name='number')
+            input.hidden(type="hidden" value=details[0].username name='username')
+            input.hidden(type="hidden" value=details[0].password name='password')
+            input.hidden(type="hidden" value=details[0].address name='address')
+          
+                
+            button.btn(type="submit") Edit Profile
